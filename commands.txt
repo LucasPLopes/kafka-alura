@@ -1,0 +1,32 @@
+cd ~/environments/kafka_2.13-3.1.0/bin
+
+
+primeiro zookeeper uma aba
+./zookeeper-server-start.sh ../config/zookeeper.properties
+
+aba 2
+./kafka-server-start.sh  ../config/server.properties
+
+aba 3
+./kafka-topics.sh --list --bootstrap-server localhost:9092
+
+./kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic LOJA_NOVO_PEDIDO
+
+
+aba 4
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+
+aba 5
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+aba 3
+./kafka-topics.sh  --bootstrap-server localhost:9092 --describe
+
+
+aba 5
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --from-beginning
+
+
+
+
