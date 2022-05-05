@@ -6,6 +6,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.UUID;
 
 public class PropertiesConfig {
     public static Properties producerProperties() {
@@ -23,7 +24,8 @@ public class PropertiesConfig {
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, className);
-
+        properties.setProperty(ConsumerConfig.CLIENT_ID_CONFIG, String.format("%s-%s", className, UUID.randomUUID()));
+        properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,"1");
         return properties;
     }
 }

@@ -13,7 +13,6 @@ import static java.lang.Thread.sleep;
 
 public class FraudDetectorService {
     private static final Logger log = LoggerFactory.getLogger(FraudDetectorService.class);
-
     public static void main(String[] args) {
         try (var consumer = new KafkaConsumer<String, String>(PropertiesConfig.consumerProperties(FraudDetectorService.class.getSimpleName()))) {
             consumer.subscribe(Collections.singletonList("ECOMMERCE_NEW_ORDER"));
