@@ -28,5 +28,5 @@ aba 5
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --from-beginning
 
 
-
-
+Aumentar o número de particições de um tópico para paralelismo
+./kafka-topics.sh --alter zookeeper --bootstrap-server localhost:9092 --topic  ECOMMERCE_NEW_ORDER --partitions 3
