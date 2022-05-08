@@ -30,3 +30,6 @@ aba 5
 
 Aumentar o número de particições de um tópico para paralelismo
 ./kafka-topics.sh --alter zookeeper --bootstrap-server localhost:9092 --topic  ECOMMERCE_NEW_ORDER --partitions 3
+
+Visualizar os grupos de consumos
+./kafka-consumer-groups.sh  --bootstrap-server localhost:9092 --describe --all-groups
